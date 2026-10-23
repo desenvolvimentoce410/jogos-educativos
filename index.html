@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogos Educativos CE 410</title>
+  <meta name="description" content="Portal de jogos educativos do CE 410.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Jogos Educativos <span class="badge">CE 410</span></h1>
+      <p class="site-subtitle">Escolha um jogo ou procure por assunto.</p>
+
+      <!-- Barra de pesquisa (não precisa editar) -->
+      <div class="search" role="search">
+        <label for="search-input" class="visually-hidden">Pesquisar jogos</label>
+        <input id="search-input" type="search" autocomplete="off"
+               placeholder="Ex.: quero um jogo de matemática">
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <p id="results-info" class="results-info" aria-live="polite"></p>
+
+    <section id="games-grid" class="games-grid" aria-label="Lista de jogos">
+
+      <!-- =====================================================================
+           COMO ADICIONAR UM NOVO JOGO
+           ---------------------------------------------------------------------
+           1) Coloque a pasta do jogo dentro de  games/  (ex.: games/meu-jogo/)
+              com um arquivo index.html dentro dela.
+           2) (Opcional) Coloque a imagem de capa em  assets/img/
+           3) Copie o bloco "MODELO" abaixo, cole ANTES do comentário
+              "FIM DA LISTA DE JOGOS" e troque os 5 campos marcados:
+
+              [1] href="..."          -> caminho para o jogo
+              [2] data-keywords="..." -> palavras-chave separadas por espaço
+              [3] src="..."           -> imagem de capa (pode apagar a tag <img>
+                                         inteira: o site mostra uma capa padrão)
+              [4] <h2>                -> nome do jogo
+              [5] <p>                 -> descrição curta (1 ou 2 frases)
+
+           Dica: a pesquisa já olha o nome e a descrição. Use as palavras-chave
+           para sinônimos e assuntos (ex.: "matemática contas multiplicação").
+           Não precisa se preocupar com acentos ou letras maiúsculas.
+
+           ----------------------- MODELO (copie daqui) ------------------------
+           <a class="game-card"
+              href="games/NOME-DA-PASTA/index.html"
+              data-keywords="palavra1 palavra2 palavra3">
+             <div class="game-thumb">
+               <img src="assets/img/NOME-DA-IMAGEM.png" alt="Capa do jogo NOME" loading="lazy">
+             </div>
+             <div class="game-info">
+               <h2>Nome do jogo</h2>
+               <p>Descrição curta do jogo.</p>
+             </div>
+           </a>
+           ----------------------- (até aqui) ----------------------------------
+           ===================================================================== -->
+
+
+      <!-- ============ JOGO: Tabuada Rápida (exemplo, pode apagar) ============ -->
+      <a class="game-card"
+         href="games/exemplo-tabuada/index.html"
+         data-keywords="matemática multiplicação tabuada contas números cálculo">
+        <div class="game-thumb">
+          <img src="assets/img/exemplo-tabuada.svg" alt="Capa do jogo Tabuada Rápida" loading="lazy">
+        </div>
+        <div class="game-info">
+          <h2>Tabuada Rápida</h2>
+          <p>Treine a multiplicação respondendo o mais rápido que conseguir.</p>
+        </div>
+      </a>
+
+      <a class="game-card"
+         href="games\jogo_memoria_dona_baratinha\index.html"
+         data-keywords="lingua portuguesa memoria conto noticia">
+        <div class="game-thumb">
+          <img src="games\jogo_memoria_dona_baratinha\assets\cards\par1_a.png" alt="Capa do jogo da Memoria" loading="lazy">
+        </div>
+        <div class="game-info">
+          <h2>Jogo da Memória de Contos</h2>
+          <p>Jogo da memória do conto "A Dona da Baratinha".</p>
+        </div>
+      </a>
+
+
+      <!-- ====== COLE OS NOVOS JOGOS AQUI (acima desta linha) ====== -->
+      <!-- ======================= FIM DA LISTA DE JOGOS ===================== -->
+
+    </section>
+
+    <!-- Mensagem quando a pesquisa não encontra nada (não precisa editar) -->
+    <div id="empty-state" class="empty-state" hidden>
+      <h2>Nenhum jogo encontrado</h2>
+      <p>Tente outra palavra, como "matemática", "português" ou "ciências".</p>
+      <button type="button" id="clear-search" class="btn">Ver todos os jogos</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Jogos Educativos CE 410</div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

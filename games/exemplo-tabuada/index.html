@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabuada Rápida</title>
+  <style>
+    body{font-family:"Trebuchet MS",Verdana,sans-serif;background:#fafaf8;color:#000;margin:0;min-height:100vh;display:grid;place-items:center;text-align:center;padding:1rem}
+    .box{max-width:420px;width:100%}
+    h1{color:#c8102e;margin:0 0 .5rem}
+    #q{font-size:3rem;font-weight:700;margin:1rem 0}
+    input{font:inherit;font-size:1.5rem;width:7rem;text-align:center;border:3px solid #000;border-radius:12px;padding:.4rem}
+    button{font:inherit;font-weight:700;color:#fff;background:#c8102e;border:2px solid #000;border-radius:999px;padding:.6rem 1.4rem;cursor:pointer;margin-left:.5rem}
+    #msg{min-height:1.5em;margin-top:1rem;font-weight:700}
+    a{color:#c8102e;display:inline-block;margin-top:1.5rem}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Tabuada Rápida</h1>
+    <div id="q"></div>
+    <input id="a" type="number" inputmode="numeric" autofocus>
+    <button id="ok">Responder</button>
+    <div id="msg" aria-live="polite"></div>
+    <div>Acertos: <span id="score">0</span></div>
+    <a href="../../index.html">Voltar para os jogos</a>
+  </div>
+  <script>
+    var x, y, score = 0;
+    function novo(){ x = 1 + Math.floor(Math.random()*10); y = 1 + Math.floor(Math.random()*10);
+      document.getElementById("q").textContent = x + " × " + y; document.getElementById("a").value = ""; }
+    function responder(){
+      var v = parseInt(document.getElementById("a").value, 10), m = document.getElementById("msg");
+      if (v === x*y){ score++; m.textContent = "Correto!"; } else { m.textContent = "Era " + (x*y) + ". Tente a próxima."; }
+      document.getElementById("score").textContent = score; novo();
+    }
+    document.getElementById("ok").addEventListener("click", responder);
+    document.getElementById("a").addEventListener("keydown", function(e){ if(e.key==="Enter") responder(); });
+    novo();
+  </script>
+</body>
+</html>

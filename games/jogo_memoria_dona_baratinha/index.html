@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jogo da Memória — Dona Baratinha</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<button id="btnTeacher" class="teacher-btn" aria-label="Modo professor" title="Modo professor">⚙️</button>
+
+<!-- TELA INICIAL -->
+<main id="screenStart" class="screen active">
+  <div class="deco" aria-hidden="true">📖 ⭐ ✏️ 💻</div>
+  <h1 id="title"></h1>
+  <p class="subtitle" id="subtitle"></p>
+  <button id="btnPlay" class="big-btn">▶ JOGAR</button>
+  <section class="how">
+    <h2>Como jogar?</h2>
+    <p>Vire duas cartas. Se elas forem iguais, você encontrou um par!</p>
+  </section>
+  <ol class="path" aria-label="Sequência do projeto">
+    <li>Literatura</li><li>Dona Baratinha</li><li>Gêneros textuais</li><li>Produção dos alunos</li><li>Jogo da memória</li>
+  </ol>
+  <p class="credit">Atividade da professora Célia Regina dos Santos · 2º Ano · Saber em Ação 2026</p>
+</main>
+
+<!-- TELA DO JOGO -->
+<main id="screenGame" class="screen">
+  <header class="hud">
+    <div class="stat">Pontos: <b id="score">0</b></div>
+    <div class="stat">Pares: <b id="pairs">0 / 0</b></div>
+    <div class="stat">Jogadas: <b id="moves">0</b></div>
+    <div class="stat" id="timerBox">Tempo: <b id="timer">00:00</b></div>
+    <button id="btnHome" class="small-btn">🏠 Início</button>
+  </header>
+  <p id="message" class="message" role="status" aria-live="polite">Vire uma carta!</p>
+  <div id="board" class="board"></div>
+</main>
+
+<!-- TELA FINAL -->
+<main id="screenEnd" class="screen">
+  <h1>🎉 PARABÉNS!</h1>
+  <p class="subtitle">Você encontrou todos os pares!</p>
+  <ul class="results">
+    <li>⭐ Pontuação: <b id="endScore"></b></li>
+    <li>🃏 Pares encontrados: <b id="endPairs"></b></li>
+    <li>👆 Jogadas: <b id="endMoves"></b></li>
+    <li id="endTimeBox">⏱️ Tempo: <b id="endTime"></b></li>
+  </ul>
+  <p class="how">Muito bem! Você completou o desafio!</p>
+  <div class="btn-row">
+    <button id="btnAgain" class="big-btn">🔄 Jogar novamente</button>
+    <button id="btnEndHome" class="big-btn alt">🏠 Voltar ao início</button>
+  </div>
+</main>
+
+<div id="confetti" aria-hidden="true"></div>
+
+<!-- MODO PROFESSOR (sem senha nesta versão) -->
+<dialog id="dlgTeacher">
+  <h2>Modo professor</h2>
+  <p>Quantidade de pares: <b id="tPairs"></b> (<span id="tCards"></span> cartas)</p>
+  <label>Título do jogo<input id="tTitle" type="text"></label>
+  <label class="chk"><input id="tSound" type="checkbox"> Sons ligados</label>
+  <label class="chk"><input id="tTimer" type="checkbox"> Mostrar cronômetro</label>
+  <div class="btn-row">
+    <button id="tSave" class="small-btn">Salvar</button>
+    <button id="tReset" class="small-btn alt">Restaurar padrão</button>
+    <button id="tClose" class="small-btn alt">Fechar</button>
+  </div>
+</dialog>
+
+<script src="js/config.js"></script>
+<script src="js/game.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
