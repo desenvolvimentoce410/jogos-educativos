@@ -1,0 +1,87 @@
+/* Reta Numérica dos Racionais - estilos do jogo
+   Cores iguais às do portal: vermelho, texto preto, fundo claro. */
+:root{--red:#c8102e;--red-dark:#9e0c24;--red-soft:#fdecef;--ok:#1b7f3b;--ok-soft:#e6f4ea;--text:#000;--muted:#3d3d3d;--bg:#fafaf8;--border:#e3e0dc;
+--font:"Trebuchet MS","Segoe UI",Verdana,system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.5}
+.wrap{max-width:860px;margin-inline:auto;padding-inline:1.1rem}
+[hidden]{display:none!important}
+
+.top{background:var(--red);color:#fff;padding-block:1.4rem 1.3rem;border-bottom:6px solid #000}
+.top h1{margin:.4rem 0 .2rem;font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.15}
+.skill{margin:0;font-size:.95rem}
+.back{color:#fff;font-weight:700}
+.back:focus-visible{outline:3px solid #fff;outline-offset:3px}
+main{padding-block:1.5rem 3rem}
+
+.card{background:#fff;border:2px solid #000;border-radius:12px;padding:1.25rem}
+.card.center{text-align:center}
+h2{margin:0 0 .5rem}
+.lead{margin:0 0 1.2rem;color:var(--muted)}
+
+.levels{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.level{font:inherit;text-align:left;background:#fff;border:2px solid #000;border-radius:12px;padding:1rem;cursor:pointer;display:flex;flex-direction:column;gap:.3rem;transition:transform .15s,box-shadow .15s}
+.level strong{color:var(--red);font-size:1.2rem}
+.level span{color:var(--muted);font-size:.95rem}
+.level:hover,.level:focus-visible{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--red)}
+.level:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.how{margin-top:1.2rem}
+.how summary{cursor:pointer;font-weight:700}
+
+.status{display:flex;justify-content:space-between;font-weight:700;margin-bottom:.4rem}
+.progress{height:12px;background:#fff;border:2px solid #000;border-radius:999px;overflow:hidden;margin-bottom:1rem}
+#bar{height:100%;width:0;background:var(--red);transition:width .3s}
+
+.prompt{margin:0 0 .4rem;font-size:1.15rem;font-weight:700}
+.target{font-size:2.2rem;font-weight:700;color:var(--red);margin:.2rem 0 .4rem}
+
+.line{width:100%;height:auto;display:block;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.line:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.line text{font-family:var(--font)}
+.pt{cursor:pointer}
+.pt:hover .bubble,.pt:focus-visible .bubble{fill:var(--red-soft);stroke:var(--red)}
+.pt:focus-visible{outline:none}
+
+.options{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.6rem}
+.opt{font:inherit;font-size:1.5rem;font-weight:700;background:#fff;border:2px solid #000;border-radius:12px;padding:.8rem;cursor:pointer;min-height:4.2rem}
+.opt:hover:not(:disabled),.opt:focus-visible{background:var(--red-soft);border-color:var(--red)}
+.opt:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.opt.wrong{background:var(--red-soft);border-color:var(--red-dark);color:var(--red-dark)}
+.opt:disabled{cursor:default}
+
+.controls{display:flex;justify-content:center;gap:.7rem;margin-top:.6rem}
+
+.btn{font:inherit;font-weight:700;color:#fff;background:var(--red);border:2px solid #000;border-radius:999px;padding:.65rem 1.5rem;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover:not(:disabled){background:var(--red-dark)}
+.btn:focus-visible{outline:3px solid #000;outline-offset:3px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.alt{background:#fff;color:#000}
+.btn.alt:hover:not(:disabled){background:var(--red-soft)}
+
+.hint-area{margin-top:.8rem;text-align:center}
+.link{font:inherit;background:none;border:0;color:var(--red-dark);text-decoration:underline;cursor:pointer}
+.hint{margin:.5rem 0 0;padding:.6rem .8rem;background:var(--red-soft);border-left:5px solid var(--red);border-radius:6px;text-align:left}
+
+.feedback{margin-top:1rem;padding:1rem;border-radius:10px;border:2px solid #000;background:var(--red-soft)}
+.feedback.good{background:var(--ok-soft);border-color:var(--ok)}
+.fb-title{margin:0 0 .3rem;font-size:1.2rem;font-weight:700}
+.feedback.good .fb-title{color:var(--ok)}
+.feedback:not(.good) .fb-title{color:var(--red-dark)}
+.fb-text{margin:0 0 .9rem}
+
+.stars{font-size:2.4rem;margin:0;color:var(--red);letter-spacing:.2em}
+.end-score{font-size:2rem;font-weight:700;margin:.2rem 0}
+.end-actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+
+/* Fração empilhada */
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .12em;font-size:.85em}
+.frac>span:first-child{padding:0 .25em;border-bottom:.09em solid currentColor}
+.frac>span:last-child{padding:0 .25em}
+
+@media (max-width:480px){
+  .options{grid-template-columns:1fr 1fr;gap:.6rem}
+  .opt{font-size:1.25rem;padding:.6rem .3rem}
+  .target{font-size:1.9rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reta Numérica dos Racionais</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="back" href="../../index.html">&larr; Voltar para os jogos</a>
+      <h1>Reta Numérica dos Racionais</h1>
+      <p class="skill">7º ano &middot; Associar números racionais em diferentes representações a pontos da reta numérica.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- TELA INICIAL -->
+    <section id="screen-start" class="card">
+      <h2>Escolha o nível</h2>
+      <p class="lead">Cada partida tem 10 perguntas. Você vai marcar números na reta, descobrir qual ponto representa um número e identificar o número de um ponto.</p>
+      <div class="levels">
+        <button class="level" data-level="1">
+          <strong>Nível 1</strong>
+          <span>Números positivos em frações e decimais</span>
+        </button>
+        <button class="level" data-level="2">
+          <strong>Nível 2</strong>
+          <span>Positivos e negativos, com números mistos</span>
+        </button>
+        <button class="level" data-level="3">
+          <strong>Nível 3</strong>
+          <span>Frações equivalentes e mais divisões na reta</span>
+        </button>
+      </div>
+      <details class="how">
+        <summary>Como jogar</summary>
+        <ul>
+          <li><b>Marcar o ponto:</b> toque ou clique na reta (ou use as setas) e confirme.</li>
+          <li><b>Qual ponto?:</b> toque na letra do ponto que representa o número.</li>
+          <li><b>Qual número?:</b> escolha o número que o ponto P representa.</li>
+          <li>Cada acerto vale 10 pontos. Usar a dica vale 5.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- TELA DO JOGO -->
+    <section id="screen-game" hidden>
+      <div class="status">
+        <span id="st-q">Pergunta 1 de 10</span>
+        <span id="st-score">Pontos: 0</span>
+      </div>
+      <div class="progress" aria-hidden="true"><div id="bar"></div></div>
+
+      <div class="card">
+        <p id="prompt" class="prompt"></p>
+        <div id="target" class="target" hidden></div>
+
+        <svg id="line" class="line" viewBox="0 0 760 190" role="img" aria-label="Reta numérica"></svg>
+
+        <div id="options" class="options" hidden></div>
+
+        <div id="controls" class="controls" hidden>
+          <button type="button" id="btn-left" class="btn alt" aria-label="Mover uma marca para a esquerda">&#9664;</button>
+          <button type="button" id="btn-ok" class="btn" disabled>Confirmar</button>
+          <button type="button" id="btn-right" class="btn alt" aria-label="Mover uma marca para a direita">&#9654;</button>
+        </div>
+
+        <div class="hint-area">
+          <button type="button" id="btn-hint" class="link">Preciso de uma dica</button>
+          <p id="hint" class="hint" hidden></p>
+        </div>
+
+        <div id="feedback" class="feedback" role="status" aria-live="polite" hidden>
+          <p id="fb-title" class="fb-title"></p>
+          <p id="fb-text" class="fb-text"></p>
+          <button type="button" id="btn-next" class="btn">Próxima pergunta</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA FINAL -->
+    <section id="screen-end" class="card center" hidden>
+      <h2>Fim da partida</h2>
+      <p id="end-stars" class="stars" aria-hidden="true"></p>
+      <p id="end-score" class="end-score"></p>
+      <p id="end-msg" class="lead"></p>
+      <div class="end-actions">
+        <button type="button" id="btn-again" class="btn">Jogar de novo</button>
+        <button type="button" id="btn-levels" class="btn alt">Escolher outro nível</button>
+        <a class="btn alt" href="../../index.html">Voltar para os jogos</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
